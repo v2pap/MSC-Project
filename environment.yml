@@ -1,8 +1,6 @@
 name: jupyterlab
 channels:
-  - anaconda
   - conda-forge
-  - defaults
 dependencies:
   - argon2-cffi=20.1.0=py38h1e8a9f7_1
   - async_generator=1.10=py_0
