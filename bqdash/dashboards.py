@@ -409,7 +409,7 @@ class EsgDashboard(BaseDashBoard):
                 self.data = self.data.set_index(self.id_field)
             else:
                 self.data = self.data.reset_index().set_index(self.id_field)
-            self.securities = list(self.data.index.values)
+            self.securities = list(self.data.index.dropna().values)
             self.sec_data = None
             self.ratings_scale = ratings_scale
             self._build_all()

@@ -23,7 +23,7 @@ def arrange_data_for_gui(security,tbl,mappings):
 
     gui_data["internal_score"] = tbl_dict[mappings['internal_score']]
     gui_data["third_party_score"] = tbl_dict[mappings['third_party_score']]
-    gui_data["third_party_score_date"] = tbl_dict[mappings['third_party_score_date']].strftime('%Y-%m-%d')
+    gui_data["third_party_score_date"] = 'Unknown' if pd.isnull(tbl_dict[mappings['third_party_score_date']]) else tbl_dict[mappings['third_party_score_date']].strftime('%Y-%m-%d')
     gui_data["tbl_data"] = sec_tbl.loc[:,mappings['factor_score_fields']]
     gui_data["peer_data"] = get_peer_data(gui_data["industry"],tbl,mappings['sector_field']).loc[:,mappings['factor_score_fields']].reset_index()
     return gui_data
