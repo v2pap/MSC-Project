@@ -518,13 +518,13 @@ class EsgDashboard(BaseDashBoard):
 
     def update_colors(self,new_colors):
         '''Public Function'''
-        #try:
+        try:
         self._widgets['name'].value = '<h1  style="color: {}">'.format(new_colors['name']) +  str(self.sec_data['name']) + "</h1>"
         self._widgets['des'].value = "<font color={}>".format(new_colors['des']) + str(self.sec_data['des']) + "</font>"
         self._widgets['industry'].value = '<p style="color: {};font-size:20px">Industry: '.format(new_colors['industry']) + str(self.sec_data['industry']) + "</p>"
         self._widgets['thirdparty'].update(self._widgets['thirdparty'].score,self._widgets['thirdparty'].date,new_colors['third_party'])
-        # except TypeError:
-        #     print("Need to Run Report First!")
+        except TypeError:
+            print("Need to Run Report First!")
 
     def __run_btn_call_back(self, caller = None):
 
