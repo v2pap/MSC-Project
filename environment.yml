@@ -18,4 +18,5 @@ dependencies:
   - openpyxl
   - pytest
   - seaborn
+  - ipyaggrid
 prefix: C:\Users\traveler\anaconda3\envs\jupyterlab
