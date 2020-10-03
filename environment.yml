@@ -18,8 +18,10 @@ dependencies:
   - openpyxl
   - pytest
   - seaborn
+  - jupyterlab_launcher>=0.5.0
   - pip
   - pip:
     # works for regular pip packages
     - ipyaggrid==0.2.1
+    - jupyter_contrib_nbextensions
 prefix: C:\Users\traveler\anaconda3\envs\jupyterlab
