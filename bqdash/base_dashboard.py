@@ -76,7 +76,9 @@ class BaseDashBoard(VBox,metaclass=MyAbstractMetaClass):
             wrong_type_dict['title'] = type(self.title)
 
         if len(wrong_type_dict) != 0:
-            error_msg = 'There is a problem with the input: ' + ' & '.join(['Incorrect type: ' + str(error) + ' for argument: ' + param for param,error in wrong_type_dict.items()])
+            error_msg = 'There is a problem with the input: ' + ' & '.join(['Incorrect type: '
+                                                              + str(error) + ' for argument: '
+                                                              + param for param,error in wrong_type_dict.items()])
             raise ValueError(error_msg)
 
     def check_required_fields(self,fields):

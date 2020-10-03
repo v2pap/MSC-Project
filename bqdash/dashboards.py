@@ -159,7 +159,7 @@ class ScoringDashboard(BaseDashBoard):
 
     def __hist_plot_on_select(self,event):
         del self.charts_selected[:]
-        self._widgets['bar_plot']._widgets['mark_bar'].selected = None
+        self._widgets['bar_plot'].widgets['mark_bar'].selected = None
         index_selected = self._widgets['hist_plot'].widgets['mark_hist'].selected
 
         if index_selected is not None:
@@ -195,7 +195,7 @@ class ScoringDashboard(BaseDashBoard):
        score_trend_df  = self.score_history_df.loc[list(self.score_history_df.iloc[self.scatter_selected].index)]
        self._widgets['trend_chart'].push(score_trend_df.T)
        self._widgets['trend_chart'].widgets['axis_x'].grid_lines = 'dashed'
-       self._widgets['trend_chart']._idgets['axis_y'].grid_lines = 'none'
+       self._widgets['trend_chart'].widgets['axis_y'].grid_lines = 'none'
        self._widgets['trend_chart_box'].layout.display = ''
 
     def __background_callback(self,mark,target):
@@ -518,13 +518,13 @@ class EsgDashboard(BaseDashBoard):
 
     def update_colors(self,new_colors):
         '''Public Function'''
-        try:
-            self._widgets['name'].value = '<h1  style="color: {}">'.format(new_colors['name']) +  str(self.sec_data['name']) + "</h1>"
-            self._widgets['des'].value = "<font color={}>".format(new_colors['des']) + str(self.sec_data['des']) + "</font>"
-            self._widgets['industry'].value = '<p style="color: {};font-size:20px">Industry: '.format(new_colors['industry']) + str(self.sec_data['industry']) + "</p>"
-            self._widgets['thirdparty'].update(self._widgets['thirdparty'].score,self._widgets['thirdparty'].date,new_colors['third_party'])
-        except TypeError:
-            print("Need to Run Report First!")
+        #try:
+        self._widgets['name'].value = '<h1  style="color: {}">'.format(new_colors['name']) +  str(self.sec_data['name']) + "</h1>"
+        self._widgets['des'].value = "<font color={}>".format(new_colors['des']) + str(self.sec_data['des']) + "</font>"
+        self._widgets['industry'].value = '<p style="color: {};font-size:20px">Industry: '.format(new_colors['industry']) + str(self.sec_data['industry']) + "</p>"
+        self._widgets['thirdparty'].update(self._widgets['thirdparty'].score,self._widgets['thirdparty'].date,new_colors['third_party'])
+        # except TypeError:
+        #     print("Need to Run Report First!")
 
     def __run_btn_call_back(self, caller = None):
 
