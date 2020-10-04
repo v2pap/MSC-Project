@@ -129,8 +129,8 @@ class ScoringDashboard(BaseDashBoard):
 
     def update_colors(self,new_colors):
         '''Public Function'''
-        self._widgets['hist_plot'].widgets['mark_hist'].colors = [new_colors['distribution']]
-        self._widgets['bar_plot'].widgets['mark_bar'].colors = [new_colors['median']]
+        self._widgets['hist_plot'].widgets['mark_hist'].colors = new_colors['distribution'] if isinstance(new_colors['distribution'],list) else [new_colors['distribution']]
+        self._widgets['bar_plot'].widgets['mark_bar'].colors = new_colors['median'] if isinstance(new_colors['median'],list) else [new_colors['median']]
         self._widgets['scatter_plot'].widgets['mark_scatter'].colors = [new_colors['scatter']]
 
     def __build_grid(self):
