@@ -298,7 +298,7 @@ class HeatMap():
     def create_new_grid(self,df):
 
         self.widgets['grid_map'] = bqp.GridHeatMap(color=df,scales={'column': self.widgets['x_sc'], 'row': self.widgets['y_sc'], 'color': self.widgets['col_sc']},
-                                                   interactions={'click':'select'},anchor_style={'fill':'##F5EEF8'})
+                                                   interactions={'click':'select'},anchor_style={'fill':'##F5EEF8'})#stroke='white',
         self.widgets['x_lb'].domain = list(df.columns)
         self.widgets['y_lb'].domain = list(df.index)
         self.widgets['x_sc'].domain = [x for x in range(len(list(df.columns)))]
